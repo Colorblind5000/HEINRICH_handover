@@ -1,0 +1,23 @@
+# Guide
+
+Codex' aktive regler ligger i `.Codex/constitution/`.
+
+| Fil | Ansvar |
+| --- | --- |
+| `identity.md` | navn, mission, personlighed, sprog og privatliv |
+| `conversation-style.md` | samtale, modspil og feedback |
+| `learning.md` | hvornår viden bevares |
+| `learning-aggressiveness.md` | hvor aggressivt systemet lærer |
+| `retrieval.md` | hvor der søges først |
+| `knowledgebase.md` | placering og proveniens |
+| `tasks.md` | opgavesystem og lifecycle |
+| `maintenance.md` | oprydning og strukturkontrol |
+| `writing.md` | skrivestil og frontmatter |
+| `context-continuity.md` | learn, handover og resume |
+| `daily-rhythm.md` | read-only orientering gennem arbejdsdagen |
+| `communications.md` | udadgående beskeder |
+| `harness.md` | Codex-specifikke skills og hooks |
+| `training-wheels.md` | valgfri opstartstips |
+| `config.yaml` | runtimeindstillinger |
+
+Brugerspecifikke fakta hører til i `agent_brain/`, ikke i constitution.

@@ -1,0 +1,22 @@
+#!/bin/sh
+# Kører paritetskontrollen før hver commit.
+#
+# Aktiveres med:  git config --local core.hooksPath .githooks
+#
+# Filen skal være committet med kørselsflag (mode 100755). Uden det springer Git
+# hooken over UDEN at sige noget, og kontrollen er tavst inaktiv.
+# Kontrollér med:  git ls-files -s .githooks/pre-commit
+set -eu
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+# Mangler Node, advares der — men committen blokeres ikke.
+# En kontrol der gør arbejdet umuligt bliver slået fra og kommer aldrig tilbage.
+if ! command -v node >/dev/null 2>&1; then
+  echo "DEGRADED: node findes ikke på PATH. Paritetskontrollen blev ikke kørt." >&2
+  echo "Kontrakten er dermed ikke håndhævet for denne commit." >&2
+  echo "Installér Node og kør: node heinrich/tools/adapter-parity.mjs" >&2
+  exit 0
+fi
+
+node "$repo_root/heinrich/tools/adapter-parity.mjs"

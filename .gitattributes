@@ -1,0 +1,23 @@
+# Normalisér linjeskift i repoet, så Windows- og POSIX-brugere ikke producerer
+# diffs der kun består af usynlige linjeskiftsændringer.
+* text=auto eol=lf
+
+# Shellscripts skal have LF, også på Windows. Med CRLF fejler de med en uklar
+# fejl om at fortolkeren ikke findes.
+*.sh text eol=lf
+.githooks/* text eol=lf
+
+# PowerShell er hjemmehørende på Windows og beholder CRLF.
+*.ps1 text eol=crlf
+
+# Binære filer må aldrig linjeskiftsnormaliseres.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.zip binary

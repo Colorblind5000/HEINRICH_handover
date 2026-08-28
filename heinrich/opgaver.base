@@ -1,0 +1,62 @@
+filters:
+  and:
+    - type == "task"
+    - file.ext == "md"
+formulas:
+  days_until_due: if(due, (date(due) - today()).days, "")
+  is_overdue: if(due, date(due) < today() && status != "done" && status != "dropped", false)
+  priority_sort: if(priority == "p0", 0, if(priority == "p1", 1, if(priority == "p2", 2, 3)))
+properties:
+  status:
+    displayName: Status
+  priority:
+    displayName: Prioritet
+  project:
+    displayName: Projekt
+  due:
+    displayName: Forfald
+  formula.days_until_due:
+    displayName: Dage
+  formula.is_overdue:
+    displayName: Overskredet
+views:
+  - type: table
+    name: Aktive opgaver
+    filters:
+      and:
+        - status != "done"
+        - status != "dropped"
+    groupBy:
+      property: priority
+      direction: ASC
+    order:
+      - status
+      - file.name
+      - priority
+      - due
+      - formula.days_until_due
+      - project
+    sort:
+      - property: priority
+        direction: ASC
+    columnSize:
+      note.due: 190
+      formula.days_until_due: 332
+  - type: table
+    name: Alle opgaver
+    order:
+      - file.name
+      - status
+      - priority
+      - due
+      - project
+  - type: table
+    name: Færdige
+    filters:
+      or:
+        - status == "done"
+        - status == "dropped"
+    order:
+      - file.name
+      - updated
+      - project

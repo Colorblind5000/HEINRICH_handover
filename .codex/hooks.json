@@ -1,0 +1,46 @@
+{
+  "description": "HEINRICH lifecycle hooks for Codex. Samme Node-implementeringer som Claude-siden bruger, så begge harness håndhæver de samme regler.",
+
+  "_rootResolution": "Codex kører hooks med sessionens cwd, som kan være en undermappe. Kommandoerne er derfor tynde launchers, der går opad gennem ancestors efter sentinel'en heinrich/agent_brain og først derefter kalder Node. Launcheren indeholder KUN stiopløsning — al logik ligger i .mjs-filen, så de to platforme ikke kan divergere.",
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'd=$PWD; while [ ! -d \"$d/heinrich/agent_brain\" ] && [ \"$d\" != \"/\" ]; do d=$(dirname \"$d\"); done; if [ -d \"$d/heinrich/agent_brain\" ]; then if command -v node >/dev/null 2>&1; then exec node \"$d/heinrich/tools/hooks/protect-paths.mjs\"; else printf \"%s\\n\" \"DEGRADED: Node.js mangler; protect-paths blev ikke kørt.\" >&2; exit 0; fi; else exit 0; fi'",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$d=$PWD.Path; while(-not (Test-Path (Join-Path $d 'heinrich/agent_brain')) -and $d -ne (Split-Path $d -Parent)){$d=Split-Path $d -Parent}; if(Test-Path (Join-Path $d 'heinrich/agent_brain')){if(Get-Command node -ErrorAction SilentlyContinue){& node (Join-Path $d 'heinrich/tools/hooks/protect-paths.mjs'); exit $LASTEXITCODE}else{[Console]::Error.WriteLine('DEGRADED: Node.js mangler; protect-paths blev ikke kørt.'); exit 0}}else{exit 0}\"",
+            "timeout": 15,
+            "statusMessage": "Kontrollerer beskyttede filer"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'd=$PWD; while [ ! -d \"$d/heinrich/agent_brain\" ] && [ \"$d\" != \"/\" ]; do d=$(dirname \"$d\"); done; if [ -d \"$d/heinrich/agent_brain\" ]; then if command -v node >/dev/null 2>&1; then exec node \"$d/heinrich/tools/hooks/pre-compact.mjs\"; else printf \"%s\\n\" \"DEGRADED: Node.js mangler; pre-compact blev ikke kørt.\" >&2; exit 0; fi; else exit 0; fi'",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$d=$PWD.Path; while(-not (Test-Path (Join-Path $d 'heinrich/agent_brain')) -and $d -ne (Split-Path $d -Parent)){$d=Split-Path $d -Parent}; if(Test-Path (Join-Path $d 'heinrich/agent_brain')){if(Get-Command node -ErrorAction SilentlyContinue){& node (Join-Path $d 'heinrich/tools/hooks/pre-compact.mjs'); exit $LASTEXITCODE}else{[Console]::Error.WriteLine('DEGRADED: Node.js mangler; pre-compact blev ikke kørt.'); exit 0}}else{exit 0}\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'd=$PWD; while [ ! -d \"$d/heinrich/agent_brain\" ] && [ \"$d\" != \"/\" ]; do d=$(dirname \"$d\"); done; if [ -d \"$d/heinrich/agent_brain\" ]; then if command -v node >/dev/null 2>&1; then exec node \"$d/heinrich/tools/hooks/daily-focus.mjs\"; else printf \"%s\\n\" \"DEGRADED: Node.js mangler; daily-focus blev ikke kørt.\" >&2; exit 0; fi; else exit 0; fi'",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$d=$PWD.Path; while(-not (Test-Path (Join-Path $d 'heinrich/agent_brain')) -and $d -ne (Split-Path $d -Parent)){$d=Split-Path $d -Parent}; if(Test-Path (Join-Path $d 'heinrich/agent_brain')){if(Get-Command node -ErrorAction SilentlyContinue){& node (Join-Path $d 'heinrich/tools/hooks/daily-focus.mjs'); exit $LASTEXITCODE}else{[Console]::Error.WriteLine('DEGRADED: Node.js mangler; daily-focus blev ikke kørt.'); exit 0}}else{exit 0}\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

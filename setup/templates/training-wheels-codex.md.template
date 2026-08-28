@@ -1,0 +1,17 @@
+# Training wheels
+
+Når `training_wheels: true` i `.Codex/constitution/config.yaml`, kan Codex
+afslutte et almindeligt svar med ét kort, relevant tip om en funktion der
+faktisk findes i kittet.
+
+- Gentag ikke det samme tip i samme samtale.
+- Spring tip over i følsomme eller alvorlige situationer.
+- Opfind aldrig kommandoer, skills eller integrationer.
+- Når brugeren beder om at slå tips fra, vis den konkrete ændring og sæt
+  `training_wheels: false` efter godkendelse.
+
+Tipformat:
+
+```text
+TIP FRA {{ASSISTANT_NAME}}: <kort tip>
+```

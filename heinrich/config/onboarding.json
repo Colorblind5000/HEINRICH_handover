@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "_comment": "Kanonisk kontrakt for onboard.mjs. Kun targets på denne liste er generator-ejede. Brain, projekter, tasks, collaboration og adapter-kontrakten må aldrig skrives af onboarding.",
+  "profileSchema": {
+    "user_name": { "type": "string", "token": "{{USER_NAME}}", "required": true, "maxLength": 80, "prompt": "Hvad vil du kaldes?" },
+    "assistant_name": { "type": "string", "token": "{{ASSISTANT_NAME}}", "required": true, "maxLength": 80, "prompt": "Hvad skal assistenten hedde?" },
+    "archetype": { "type": "string", "token": "{{ARCHETYPE}}", "required": true, "maxLength": 80, "prompt": "Hvilken personlighedsarketype skal assistenten have?" },
+    "archetype_traits": { "type": "string", "token": "{{ARCHETYPE_TRAITS}}", "required": true, "maxLength": 500, "prompt": "Hvilke konkrete træk skal arketypen have?" },
+    "namesake_note": { "type": "string", "token": "{{NAMESAKE_NOTE}}", "required": false, "default": "", "maxLength": 240, "prompt": "Er der en kort historie bag assistentens navn?" },
+    "strategic_lens": { "type": "string", "token": "{{STRATEGIC_LENS}}", "required": false, "default": "Ingen fast strategisk linse er valgt endnu.", "maxLength": 500, "prompt": "Hvilken strategisk linse skal assistenten bruge?" },
+    "push_back_stance": { "type": "enum", "token": "{{PUSH_BACK_STANCE}}", "required": true, "values": ["evidensbaseret", "blød", "hård"] },
+    "privacy_scope": { "type": "enum", "token": "{{PRIVACY_SCOPE}}", "required": true, "values": ["work-only", "hard-split", "custom"] },
+    "privacy_boundaries": { "type": "string", "token": "{{PRIVACY_BOUNDARIES}}", "required": true, "maxLength": 1000, "prompt": "Hvilke konkrete privatlivsgrænser skal gælde?" },
+    "language": { "type": "string", "token": "{{LANGUAGE}}", "required": true, "maxLength": 80 },
+    "timezone": { "type": "iana-tz", "token": "{{TIMEZONE}}", "required": true },
+    "working_week": { "type": "string", "token": "{{WORKING_WEEK}}", "required": true, "maxLength": 120 },
+    "date_format": { "type": "enum", "token": "{{DATE_FORMAT}}", "required": true, "values": ["YYYY-MM-DD", "DD-MM-YYYY"] }
+  },
+  "targets": [
+    { "template": "heinrich/.claude/constitution/identity.md.template", "output": "heinrich/.claude/constitution/identity.md", "format": "markdown" },
+    { "template": "heinrich/.Codex/constitution/identity.md.template", "output": "heinrich/.Codex/constitution/identity.md", "format": "markdown" },
+    { "template": "setup/templates/conversation-style.md.template", "output": "heinrich/.claude/constitution/conversation-style.md", "format": "markdown" },
+    { "template": "setup/templates/conversation-style.md.template", "output": "heinrich/.Codex/constitution/conversation-style.md", "format": "markdown" },
+    { "template": "setup/templates/guide-claude.md.template", "output": "heinrich/.claude/constitution/guide.md", "format": "markdown" },
+    { "template": "setup/templates/guide-codex.md.template", "output": "heinrich/.Codex/constitution/guide.md", "format": "markdown" },
+    { "template": "setup/templates/config.yaml.template", "output": "heinrich/.claude/constitution/config.yaml", "format": "yaml" },
+    { "template": "setup/templates/config.yaml.template", "output": "heinrich/.Codex/constitution/config.yaml", "format": "yaml" },
+    { "template": "setup/templates/communications.md.template", "output": "heinrich/.claude/constitution/communications.md", "format": "markdown" },
+    { "template": "setup/templates/communications.md.template", "output": "heinrich/.Codex/constitution/communications.md", "format": "markdown" },
+    { "template": "setup/templates/training-wheels-claude.md.template", "output": "heinrich/.claude/constitution/training-wheels.md", "format": "markdown" },
+    { "template": "setup/templates/training-wheels-codex.md.template", "output": "heinrich/.Codex/constitution/training-wheels.md", "format": "markdown" },
+    { "template": "setup/templates/writing.md.template", "output": "heinrich/.claude/constitution/writing.md", "format": "markdown" },
+    { "template": "setup/templates/writing.md.template", "output": "heinrich/.Codex/constitution/writing.md", "format": "markdown" }
+  ],
+  "stateFile": "setup/.generated.json",
+  "profileFile": "setup/profile.yaml",
+  "templateRemotes": [
+    "https://github.com/Colorblind5000/HEINRICH_handover.git",
+    "git@github.com:Colorblind5000/HEINRICH_handover.git"
+  ],
+  "_invariants": [
+    "Profilens tokenmængde og templatenes tokenmængde skal være identiske.",
+    "Begge harness-output læser direkte fra profil plus en template; intet output er kilde for et andet.",
+    "Re-run må kun overskrive et output, hvis det stadig matcher den sidst registrerede generatorhash eller allerede matcher det nye output.",
+    "Alle writes forberedes før den første fil erstattes og udføres via tempfil plus rename.",
+    "Git kaldes med argument-arrays og shell=false. Commit og push er separate handlinger."
+  ]
+}

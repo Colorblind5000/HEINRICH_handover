@@ -1,0 +1,68 @@
+filters:
+  and:
+    - type == "project"
+    - or:
+        - file.inFolder("agent_brain/projects")
+        - file.inFolder("agent_brain/_archive")
+properties:
+  lifecycle:
+    displayName: Livscyklus
+  summary:
+    displayName: Formål
+  next_action:
+    displayName: Næste handling
+  updated:
+    displayName: Opdateret
+  workspace_path:
+    displayName: Satellit
+views:
+  - type: table
+    name: Aktive
+    filters:
+      and:
+        - lifecycle == "active"
+    order:
+      - file.name
+      - summary
+      - next_action
+      - updated
+      - workspace_path
+  - type: table
+    name: Standby
+    filters:
+      and:
+        - lifecycle == "standby"
+    order:
+      - file.name
+      - summary
+      - updated
+      - workspace_path
+  - type: table
+    name: Frosne
+    filters:
+      and:
+        - lifecycle == "frozen"
+    order:
+      - file.name
+      - summary
+      - updated
+      - workspace_path
+  - type: table
+    name: Arkiverede
+    filters:
+      and:
+        - lifecycle == "archived"
+    order:
+      - file.name
+      - summary
+      - updated
+      - workspace_path
+  - type: table
+    name: Skal klassificeres
+    filters:
+      not:
+        - file.hasProperty("lifecycle")
+    order:
+      - file.name
+      - status
+      - updated

@@ -1,0 +1,62 @@
+# Hemmeligheder — aldrig i git
+.secrets/
+.env*
+!.env.example
+
+# Nøgler og certifikater
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Afhængigheder og build
+node_modules/
+dist/
+build/
+out/
+.next/
+.cache/
+
+# Agent-scratch
+.claude/worktrees/
+.agents/worktrees/
+.codex/worktrees/
+
+# Lokale harness-indstillinger. Delte indstillinger ligger i
+# .claude/settings.json; .local-varianten er personlig og skal ikke deles.
+.claude/settings.local.json
+.claude/launch.json
+
+# One-shot godkendelse af en beskyttet fil. Forbruges ved brug og må aldrig
+# committes — ellers er spærringen permanent ophævet uden at nogen opdager det.
+.protected-override
+
+# Obsidian arbejdstilstand. Vault-konfigurationen deles, men UI-historikken
+# afslører hvilke filer du har åbne, og støjer i hver commit.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# OS-støj
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Store mediefiler — hør ikke hjemme i et tekstrepo
+*.mp4
+*.webm
+*.mov
+*.avi
+*.zip
+
+# Egne projekter med selvstændigt git-repo ankres her af /create-project.
+# Ankringen skal være rod-relativ (/<slug>/), så den ikke ved et uheld rammer
+# en ligelydende mappe længere nede i træet.
+# --- managed:projects ---
+# --- /managed:projects ---

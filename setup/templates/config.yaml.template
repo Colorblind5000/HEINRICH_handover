@@ -1,0 +1,12 @@
+# Genereret af onboarding. Ændr setup/profile.yaml og kør onboarding igen.
+assistant_name: {{ASSISTANT_NAME}}
+language: {{LANGUAGE}}
+timezone: {{TIMEZONE}}
+date_format: {{DATE_FORMAT}}
+working_week: {{WORKING_WEEK}}
+privacy_scope: {{PRIVACY_SCOPE}}
+push_back_stance: {{PUSH_BACK_STANCE}}
+
+training_wheels: true
+feeds: false
+external_research: false

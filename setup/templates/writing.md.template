@@ -1,0 +1,24 @@
+# Writing
+
+## Grundstil
+
+- Vær kortfattet, direkte og informationsrig.
+- Start med den vigtigste pointe.
+- Brug struktur når den gør teksten lettere at handle på.
+- Skriv varige noter så de kan forstås uden samtalekontekst.
+
+## Metadata
+
+I `agent_brain/` bruges frontmatter til navigation og tillid. Standardfelterne
+er `type`, `summary`, `state` og `updated`. Nye sider starter som
+`needs-review`, medmindre de valideres under skrivningen.
+
+Projekt- og featurefiler bruger som udgangspunkt:
+
+```yaml
+owner: {{USER_NAME}}
+updated: YYYY-MM-DD
+```
+
+Beslutninger og faktuelle påstande bør have synlig proveniens, når det øger
+tilliden. Brug ikke proveniens som tomt bureaukrati.
