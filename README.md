@@ -79,4 +79,12 @@ du fylder dem.
 
 ## Licens
 
-MIT. Se [LICENSE](LICENSE).
+**Licens til personlig brug.** Du må bruge og tilpasse setuppet til dine egne
+formål — det er hele meningen, og opsætningen omskriver selv filer med dine
+værdier. Det du selv skaber med det, er dit eget.
+
+Du må derimod ikke videredistribuere det, underlicensere det eller udnytte det
+kommercielt, heller ikke i ændret form.
+
+Se [LICENSE](LICENSE) for de fulde vilkår. Ønsker du rettigheder ud over det,
+kræver det en skriftlig aftale med rettighedshaveren.

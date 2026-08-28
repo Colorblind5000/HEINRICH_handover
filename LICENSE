@@ -1,21 +1,90 @@
-MIT License
+HEINRICH — Licens til personlig brug
+HEINRICH — Personal Use License
 
-Copyright (c) 2026 Emil Olsen
+Copyright (c) 2026 Emil Olsen. Alle rettigheder forbeholdes ud over det
+udtrykkeligt tildelte nedenfor.
+All rights reserved except as expressly granted below.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Dansk tekst er den gældende version. English translation follows for
+convenience; in case of conflict, the Danish text prevails.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+DU MÅ
+
+1. Bruge dette materiale til dine egne formål, personligt eller internt i
+   din egen organisation.
+2. Ændre, tilpasse og videreudvikle det til de formål. Det er forudsat:
+   opsætningen omskriver selv filer med dine egne værdier.
+3. Beholde dine ændringer og det indhold, du selv skaber med det.
+
+
+DU MÅ IKKE
+
+1. Videregive, udgive, offentliggøre eller på anden måde distribuere
+   materialet eller ændrede udgaver af det til tredjepart.
+2. Underlicensere det.
+3. Sælge det, udleje det eller på anden måde udnytte det kommercielt —
+   hverken alene eller som del af et andet produkt eller en ydelse.
+4. Fjerne eller skjule denne licens eller ophavsretsangivelsen.
+
+Punkt 1 og 3 gælder også for enhver ændret, afledt eller sammensat udgave.
+
+Det arbejde, du selv frembringer ved at bruge materialet — dine noter,
+projekter og resultater — er dit eget og omfattes ikke af begrænsningerne.
+
+
+UNDTAGELSE VEDRØRENDE GITHUB
+
+Så længe dette materiale ligger i et offentligt GitHub-repositorium, tillader
+GitHubs vilkår andre brugere at se og forke det på platformen. Den ret følger
+af platformen og indskrænkes ikke af denne licens. Alle øvrige begrænsninger
+ovenfor gælder uændret, også for en fork.
+
+
+INGEN GARANTI
+
+Materialet leveres som det er og forefindes, uden nogen form for garanti,
+udtrykkelig eller stiltiende, herunder men ikke begrænset til garantier for
+salgbarhed, egnethed til et bestemt formål og ikke-krænkelse af tredjeparts
+rettigheder.
+
+Ophavsmanden er ikke ansvarlig for noget krav, nogen skade eller noget andet
+ansvar, uanset om det udspringer af aftale, erstatning uden for kontrakt eller
+andet grundlag, og uanset om det opstår i forbindelse med materialet eller
+brugen af det.
+
+
+ANDEN BRUG
+
+Ønsker du rettigheder ud over det ovenstående — herunder videredistribution
+eller kommerciel brug — kræver det en skriftlig aftale med rettighedshaveren.
+
+
+---
+
+ENGLISH TRANSLATION (for convenience; the Danish text above prevails)
+
+YOU MAY: use this material for your own personal or internal organisational
+purposes; modify and adapt it for those purposes; and keep your modifications
+and the content you create with it.
+
+YOU MAY NOT: distribute, publish or otherwise transfer the material or
+modified versions of it to third parties; sublicense it; sell, rent or
+otherwise commercially exploit it, alone or as part of another product or
+service; or remove this licence or the copyright notice. The distribution and
+commercial restrictions apply equally to any modified or derivative version.
+
+Work you create by using the material — your notes, projects and results — is
+your own and is not subject to these restrictions.
+
+GITHUB EXCEPTION: while this material is hosted in a public GitHub repository,
+GitHub's Terms of Service permit other users to view and fork it on the
+platform. That right derives from the platform and is not restricted by this
+licence. All other restrictions above continue to apply, including to a fork.
+
+NO WARRANTY: the material is provided "as is", without warranty of any kind,
+express or implied. The author is not liable for any claim, damages or other
+liability arising from the material or its use.
+
+For rights beyond the above, including redistribution or commercial use, a
+written agreement with the copyright holder is required.
